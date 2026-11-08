@@ -1,0 +1,1 @@
+public class Test { public static void main(String[] args) { int[] tests = {0, 1, 13, 25, 255, 1024}; for (int n : tests) { core.DecimalToBinary.Result r = core.DecimalToBinary.convert(n); System.out.println(n + \\" -> Bin: "\ + r.binary() + \\" -> Oct: "\ + r.octal() + \\" -> Hex: "\ + r.hex()); } } }  
