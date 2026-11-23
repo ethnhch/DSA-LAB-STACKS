@@ -26,8 +26,8 @@ public class AppFrame extends JFrame {
                         () -> open("Exercise 2 - Evaluate Postfix Expression", Ex2Panel::new)),
                 new MainMenu.Item("Exercise 3", "Decimal to Binary", "Division & Popping Phases using Stack",
                         () -> open("Exercise 3", Ex3Panel::new)),
-                new MainMenu.Item("Group Exercise", "Stack & Circular Queue", "Shared Array - Modulo Wrapping - Exit Compliance",
-                        () -> open("Group Exercise - Array Stack & Circular Queue", () -> new GroupPanel(this::home)))),
+                new MainMenu.Item("Group Exercise", "Stack & Linear Queue", "Shared Array - Linear FIFO - Exit Compliance",
+                        () -> open("Group Exercise - Array Stack & Linear Queue", () -> new GroupPanel(this::home)))),
                 () -> System.exit(0)), "menu");
 
         add(deck);

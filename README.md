@@ -16,7 +16,7 @@ src/
 ├── Main.java                 entry point
 ├── core/                     pure logic, no GUI code
 │   ├── ArrayStack.java       Exercise 1, reused everywhere
-│   ├── ArrayQueue.java       Group Exercise (circular array)
+│   ├── ArrayQueue.java       Group Exercise (linear array)
 │   ├── PostfixEvaluator.java Exercise 2
 │   ├── InfixToPostfix.java   Exercise 2 (handout, tabulation method)
 │   └── DecimalToBinary.java  Exercise 3

@@ -72,6 +72,20 @@ public abstract class StructurePanel extends JPanel {
         }
     }
 
+    /** Value typed in the Value box as trimmed String (allowing numbers and letters). */
+    protected String inputString() {
+        String text = value.getText().trim();
+        if (text.isEmpty()) {
+            throw new IllegalArgumentException("Type a number or letter in the Value box first");
+        }
+        return text;
+    }
+
+    /** Alias for inputString. */
+    protected String inputText() {
+        return inputString();
+    }
+
     protected void triggerOnEnter(GameButton button) {
         value.addActionListener(e -> button.doClick());
     }

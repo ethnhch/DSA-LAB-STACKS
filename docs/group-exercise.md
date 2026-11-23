@@ -49,17 +49,20 @@ Both structures are allocated with the specified shared capacity upon entering t
 
 ---
 
-## 3. Circular Array Queue Implementation (`core/ArrayQueue.java`)
+## 3. Linear Array Queue Implementation (`core/ArrayQueue.java`)
 - **Principle:** FIFO (First-In, First-Out).
-- **The "False Overflow" Problem:** In a linear array queue, every `Dequeue` moves `front` forward. Even if earlier slots are vacant, `rear` eventually reaches the end of the array, falsely reporting full. Shifting elements backward takes $O(N)$ time.
-- **The Modulo Wrapping Solution:** Using modulo arithmetic (`% _maxSize`), pointers automatically wrap around from index `_maxSize - 1` back to index `0`:
-  $$\text{rear} = (\text{rear} + 1) \pmod{\text{maxSize}}$$
-  $$\text{front} = (\text{front} + 1) \pmod{\text{maxSize}}$$
+- **Linear Pointer Progression:** Pointers advance linearly through the array:
+  - `Enqueue(item)`: Moves `_rear++` and places the item at `_queueArray[_rear]`. Throws `Queue overflow` when `_rear == _maxSize - 1`.
+  - `Dequeue()`: Reads and clears `_queueArray[_front++]`. Throws `Queue underflow` when empty. When the queue becomes empty (`_count == 0`), pointers automatically reset (`_front = 0`, `_rear = -1`).
+  - `Peek()`: Returns `_queueArray[_front]` without removing it.
+  - `IsEmpty()`: `_count == 0`.
+  - `IsFull()`: `_rear == _maxSize - 1`.
 - **State Fields:**
   - `_queueArray`: Fixed array of size `_maxSize`.
   - `_front`: Index of the oldest active element.
   - `_rear`: Index of the most recently enqueued element.
-  - `_count`: Explicit number of active items (distinguishes empty `_count == 0` from full `_count == _maxSize`).
+  - `_count`: Number of active items in the queue.
+- **Demonstration of Linear Queue Characteristic:** In a linear queue without modulo wrapping, if items are enqueued and dequeued, `_rear` advances to `_maxSize - 1`. Once `_rear` reaches the end of the array, `IsFull()` reports `true` until the queue is completely emptied or cleared.
 - **All operations run in strictly $O(1)$ constant time.**
 
 ---

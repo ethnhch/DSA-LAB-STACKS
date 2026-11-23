@@ -3,9 +3,9 @@ package ui;
 import core.ArrayQueue;
 import java.awt.Color;
 
-/** Interactive circular-array queue: Enqueue, Dequeue, Peek, IsEmpty, IsFull, Display, Clear. */
+/** Interactive linear-array queue: Enqueue, Dequeue, Peek, IsEmpty, IsFull, Display, Clear. */
 public class QueuePanel extends StructurePanel {
-    private final ArrayQueue<Integer> queue;
+    private final ArrayQueue<String> queue;
 
     public QueuePanel(int size) {
         this(size, null);
@@ -15,7 +15,7 @@ public class QueuePanel extends StructurePanel {
         super(onChangeSize);
         queue = new ArrayQueue<>(size);
         triggerOnEnter(op("Enqueue", () -> {
-            int item = input();
+            String item = inputString();
             queue.enqueue(item);
             return "Enqueued " + item + " at rear index " + queue.rearIndex() + " (items = " + queue.count() + "/" + queue.maxSize() + ")";
         }, Theme.ACCENT));

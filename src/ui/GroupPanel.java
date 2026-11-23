@@ -25,7 +25,7 @@ public class GroupPanel extends JPanel {
 
         add(new SizePanel("Enter Shared Array Size", size -> {
             add(withHeader("Array Stack (LIFO)", new StackPanel(size)), "STACK");
-            add(withHeader("Circular Array Queue (FIFO)", new QueuePanel(size)), "QUEUE");
+            add(withHeader("Linear Array Queue (FIFO)", new QueuePanel(size)), "QUEUE");
             cards.show(this, "MENU");
         }), "SIZE");
 
